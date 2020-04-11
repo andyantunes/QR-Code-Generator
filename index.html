@@ -5,36 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de QR Code</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/fontawesome.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <div class="containerH">
+    <div class="container">
+        <header>
             <img src="./images/logo-v1.png" alt="Logo" width="30">
             <h2>Gerador QR</h2>
-        </div>
-    </header>
-    <main>
-        <div class="containerH">
+        </header>
+        <main>
             <article>
                 <h1>Gerador de QR Code</h1>
-                <div class="containerH">
-                    <div class="left">
-                        <input type="text" name="content" id="content" placeholder="Insira a url...">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="style_options">
+                            <div class="backcolor">
+                                <label>Cor de fundo</label>
+                                <i class="fas fa-qrcode"><input type="text" name="backcolor" id="backcolor"
+                                        value="#FFFFFF"></i>
+                            </div>
+                            <div class="frontcolor">
+                                <label>Cor do código</label>
+                                <i class="fas fa-qrcode"><input type="text" name="frontcolor" id="frontcolor"
+                                        value="#000000"></i>
+                            </div>
+                            <div class="size">
+                                <label>Tamanho</label>
+                                <select name="size" id="size">
+                                    <option value="4">4</option>
+                                    <option value="6">6</option>
+                                    <option value="8">8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                    <option value="16">16</option>
+                                </select>
+                            </div>
+                            <div class="precision">
+                                <label>Precisão</label>
+                                <select name="precision" id="precision">
+                                    <option value="L">L - Baixo</option>
+                                    <option value="M">M - Médio</option>
+                                    <option value="Q">Q - Alto</option>
+                                    <option value="H">H - Elevado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home"><i class="fas fa-link"></i>URL</a></li>
+                            <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li> -->
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <h3>Link</h3>
+                                <input type="text" name="url" id="url" placeholder="Sua URL" />
+                            </div>
+                            <!-- <div id="menu1" class="tab-pane fade">
+                            <h3>E-mail</h3>
+                            <p>E-mail</p>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <h3>Novo</h3>
+                            <p>Some content in menu 2.</p>
+                        </div> -->
+                        </div>
+
                     </div>
-                    <div class="right">
-                        <img src="./images/temp_qrcode.png" alt="QR Code" width="200">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="qr_content">
+                            <img src="./images/temp_qrcode.png" alt="QR Code" width="200">
+                        </div>
                     </div>
                 </div>
             </article>
-        </div>
-    </main>
+        </main>
+    </div>
     <footer>
-        <div class="containerH">
+        <div class="">
             <small>Desenvolvido por AllInWEbDev &copy; 2020</small>
         </div>
     </footer>
+
+    <script src="./js/tabs.js"></script>
 </body>
 
 </html>
