@@ -28,13 +28,13 @@ article h1 {
     font-weight: 600;
 }
 
-.backcolor .input-group-text,
-.frontcolor .input-group-text {
+.darkcolor .input-group-text,
+.lightcolor .input-group-text {
     background: #fff;
 }
 
-#backcolor,
-#frontcolor {
+#darkcolor,
+#lightcolor {
     width: 75px;
     height: 38px;
 }
