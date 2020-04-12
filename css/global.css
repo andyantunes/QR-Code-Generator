@@ -94,17 +94,19 @@ form {
 .card-qrcode {
     margin: 0 auto;
     width: 20rem;
+    height: 384px;
     border: 4px #999 solid;
     border-radius: 10px;
     background: #FFF;
 }
 
 .card-qrcode-img {
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
 .card-qrcode-img img {
+    margin: 0 auto;
     opacity: .5;
 }
 
@@ -113,7 +115,7 @@ form {
 }
 
 .card-qrcode-btn {
-    padding: 20px 0;
+    padding: 25px 0;
     text-align: center;
 }
 
