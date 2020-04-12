@@ -5,83 +5,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de QR Code</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/global.css">
+
 </head>
 
 <body>
+    <header>
+        <img src="./images/logo-v1.png" alt="Logo" width="30">
+        <h2>Gerador QR</h2>
+    </header>
     <div class="container">
-        <header>
-            <img src="./images/logo-v1.png" alt="Logo" width="30">
-            <h2>Gerador QR</h2>
-        </header>
         <main>
             <article>
                 <h1>Gerador de QR Code</h1>
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-self-center">
                         <div class="style_options">
                             <div class="backcolor">
                                 <label>Cor de fundo</label>
-                                <i class="fas fa-qrcode"><input type="text" name="backcolor" id="backcolor"
-                                        value="#FFFFFF"></i>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                                            <i class="fas fa-qrcode"></i>
+                                        </span>
+                                    </div>
+                                    <input id="backcolor" type="text" class="form-control" value="#000000">
+                                </div>
                             </div>
                             <div class="frontcolor">
-                                <label>Cor do código</label>
-                                <i class="fas fa-qrcode"><input type="text" name="frontcolor" id="frontcolor"
-                                        value="#000000"></i>
+                                <label>Cor do Código</label>
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">
+                                            <i class="fas fa-qrcode"></i>
+                                        </span>
+                                    </div>
+                                    <input id="frontcolor" type="text" class="form-control" value="#FFFFFF">
+                                </div>
                             </div>
-                            <div class="size">
-                                <label>Tamanho</label>
-                                <select name="size" id="size">
-                                    <option value="4">4</option>
-                                    <option value="6">6</option>
-                                    <option value="8">8</option>
-                                    <option value="10">10</option>
-                                    <option value="12">12</option>
-                                    <option value="14">14</option>
-                                    <option value="16">16</option>
-                                </select>
-                            </div>
-                            <div class="precision">
-                                <label>Precisão</label>
-                                <select name="precision" id="precision">
-                                    <option value="L">L - Baixo</option>
-                                    <option value="M">M - Médio</option>
-                                    <option value="Q">Q - Alto</option>
-                                    <option value="H">H - Elevado</option>
-                                </select>
-                            </div>
+                            <form>
+                                <div class="form-group size">
+                                    <label for="size">Tamanho</label>
+                                    <select class="form-control" name="size" id="size">
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="form-group precision">
+                                    <label for="precision">Precisão</label>
+                                    <select class="form-control" name="precision" id="precision">
+                                        <option value="L">L - Baixo</option>
+                                        <option value="M">M - Médio</option>
+                                        <option value="Q">Q - Alto</option>
+                                        <option value="H">H - Elevado</option>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#home"><i class="fas fa-link"></i>URL</a></li>
-                            <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-                        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li> -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="link-tab" data-toggle="tab" href="#link" role="tab"
+                                    aria-controls="link" aria-selected="true"><i class="fas fa-link"></i>Link</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#perfil" role="tab"
+                                    aria-controls="profile" aria-selected="false">Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab"
+                                    aria-controls="messages" aria-selected="false">Mensagens</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab"
+                                    aria-controls="settings" aria-selected="false">Configurações</a>
+                            </li>
                         </ul>
 
                         <div class="tab-content">
-                            <div id="home" class="tab-pane fade in active">
-                                <h3>Link</h3>
-                                <input type="text" name="url" id="url" placeholder="Sua URL" />
+                            <div class="tab-pane active" id="link" role="tabpanel" aria-labelledby="link-tab">
+                                <input type="text" id="url" placeholder="https://www.google.com">
                             </div>
-                            <!-- <div id="menu1" class="tab-pane fade">
-                            <h3>E-mail</h3>
-                            <p>E-mail</p>
+                            <div class="tab-pane" id="perfil" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">...</div>
+                            <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">...</div>
                         </div>
-                        <div id="menu2" class="tab-pane fade">
-                            <h3>Novo</h3>
-                            <p>Some content in menu 2.</p>
-                        </div> -->
-                        </div>
-
+                        <button class="btn-generate">Gerar QR Code</button>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="qr_content">
-                            <img src="./images/temp_qrcode.png" alt="QR Code" width="200">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 align-self-center">
+                        <div class="card-qrcode">
+                            <div class="card-qrcode-img">
+                                <img class="img-fluid" src="./images/temp_qrcode.png" alt="QR Code" width="250">
+                            </div>
+                            <!-- <div class="card-qrcode-content">
+                                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer
+                                    preencher o conteúdo do card.</p>
+                            </div> -->
+                            <div class="card-qrcode-btn">
+                                <button class="btn-generate">Baixar QR Code</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,8 +134,6 @@
             <small>Desenvolvido por AllInWEbDev &copy; 2020</small>
         </div>
     </footer>
-
-    <script src="./js/tabs.js"></script>
 </body>
 
 </html>
