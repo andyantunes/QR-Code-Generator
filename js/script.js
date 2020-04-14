@@ -1,22 +1,32 @@
-var qrcode = new QRCode("qrcode", {
-    text: "https://www.google.com",
+var qr = new VanillaQR({
+    url: 'https://www.google.com',
     width: 200,
     height: 200,
-    colorDark: darkcolor.value,
-    colorLight: lightcolor.value,
-    correctLevel: QRCode.CorrectLevel.H
+    colorLight: '#FFFFFF',
+    colorDark: '#000000',
+    noBorder: true
 });
 
-var qrOpacity = document.querySelector('.card-qrcode-img img');
+qrcode.appendChild(qr.domElement);
+
+var qrOpacity = document.querySelector('.card-qrcode-img canvas');
 
 btn_generate.addEventListener('click', function () {
-    qrcode.clear(); // clear the code.
     if (!url.value) {
         qrOpacity.style.opacity = '.5';
-        qrcode.makeCode('https://www.google.com')
+        url.style.borderColor = 'rgba(255, 0, 0, .5)';
+        url.focus();
+
+        qr.url = 'https://www.google.com';
+        qr.init();
     } else {
         qrOpacity.style.opacity = '1';
-        qrcode.makeCode(url.value); // make another code.
+
+        qr.url = url.value;
+        qr.colorLight = lightcolor.value;
+        qr.colorDark = darkcolor.value;
+
+        qr.init();
     }
 });
 
@@ -27,14 +37,9 @@ darkcolor.addEventListener('keyup', function () {
     console.log(darkcolor.value);
     newDarkcolor.style.color = darkcolor.value;
     newLightcolor.style.color = darkcolor.value;
-
-    // newDarkcolor.style.color = lightcolor.value;
-    // newLightcolor.style.color = lightcolor.value;
 });
 
 lightcolor.addEventListener('keyup', function () {
-    // newDarkcolor.style = 'background: ' + darkcolor.value;
-    // newLightcolor.style = 'background: ' + darkcolor.value;
     console.log(lightcolor.value);
     newDarkcolor.style.background = lightcolor.value;
     newLightcolor.style.background = lightcolor.value;
