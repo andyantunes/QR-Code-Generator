@@ -44,3 +44,16 @@ lightcolor.addEventListener('keyup', function () {
     newDarkcolor.style.background = lightcolor.value;
     newLightcolor.style.background = lightcolor.value;
 });
+
+btn_download.addEventListener('click', function () {
+    downloadImage();
+});
+
+function downloadImage() {
+    var canvas = document.querySelector('canvas');
+    var image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+    var link = document.createElement('a');
+    link.download = 'my-qrcode.png';
+    link.href = image;
+    link.click();
+}
