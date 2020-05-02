@@ -4,7 +4,10 @@ var qr = new VanillaQR({
     height: 200,
     colorLight: '#FFFFFF',
     colorDark: '#000000',
-    noBorder: true
+    noBorder: false,
+    borderSize: 4,
+    mime: 'image/png',
+    toTable: 'div'
 });
 
 qrcode.appendChild(qr.domElement);
