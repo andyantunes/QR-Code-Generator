@@ -78,7 +78,7 @@ footer {
 }
 
 .btn-generate {
-    margin: 0 0 30px;
+    margin: 20px 0 30px;
     background: #0af;
     border: none;
     border-radius: 5px;
@@ -99,7 +99,7 @@ footer {
 }
 
 .card-qrcode-img {
-    padding: 40px 0 0;
+    padding: 30px 0;
     display: flex;
     justify-content: center;
 }

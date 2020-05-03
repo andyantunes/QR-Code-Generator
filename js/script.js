@@ -1,7 +1,5 @@
 var qr = new VanillaQR({
     url: 'https://www.google.com',
-    width: 290,
-    height: 290,
     colorLight: '#FFFFFF',
     colorDark: '#000000',
     noBorder: false,
@@ -14,9 +12,6 @@ qrcode.appendChild(qr.domElement);
 
 var qrOpacity = document.querySelector('.card-qrcode-img div');
 
-var element;
-var getCanvas;
-
 btn_generate.addEventListener('click', function () {
     if (!url.value) {
         qrOpacity.style.opacity = '.5';
@@ -28,15 +23,11 @@ btn_generate.addEventListener('click', function () {
     } else {
         qrOpacity.style.opacity = '1';
 
-        qr.size = (size.value * 29);
         qr.url = url.value;
         qr.colorLight = lightcolor.value;
         qr.colorDark = darkcolor.value;
 
         qr.init();
-
-        // element = document.querySelector('table');
-        // console.log(element)
     }
 });
 
@@ -60,8 +51,8 @@ btn_download.addEventListener('click', function () {
 
     // Convert to PNG
     domtoimage.toPng(node, {
-            width: 500,
-            height: 500
+            width: (size.value * 29),
+            height: (size.value * 29)
         })
         .then(function (dataUrl) {
             let link = document.createElement('a');
