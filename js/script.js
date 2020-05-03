@@ -1,11 +1,14 @@
 var qr = new VanillaQR({
     url: 'https://www.google.com',
+    width: 100,
+    height: 100,
     colorLight: '#FFFFFF',
     colorDark: '#000000',
     noBorder: false,
     borderSize: 4,
+    ecclevel: 3,
     mime: 'image/png',
-    toTable: 'div'
+    toTable: true
 });
 
 qrcode.appendChild(qr.domElement);
@@ -26,6 +29,7 @@ btn_generate.addEventListener('click', function () {
         qr.url = url.value;
         qr.colorLight = lightcolor.value;
         qr.colorDark = darkcolor.value;
+        qr.ecclevel = precision.value;
 
         qr.init();
     }
