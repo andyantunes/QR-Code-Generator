@@ -1,7 +1,7 @@
 var qr = new VanillaQR({
     url: 'https://www.google.com',
-    width: 200,
-    height: 200,
+    width: 290,
+    height: 290,
     colorLight: '#FFFFFF',
     colorDark: '#000000',
     noBorder: false,
@@ -12,7 +12,10 @@ var qr = new VanillaQR({
 
 qrcode.appendChild(qr.domElement);
 
-var qrOpacity = document.querySelector('.card-qrcode-img canvas');
+var qrOpacity = document.querySelector('.card-qrcode-img div');
+
+var element;
+var getCanvas;
 
 btn_generate.addEventListener('click', function () {
     if (!url.value) {
@@ -25,11 +28,15 @@ btn_generate.addEventListener('click', function () {
     } else {
         qrOpacity.style.opacity = '1';
 
+        qr.size = (size.value * 29);
         qr.url = url.value;
         qr.colorLight = lightcolor.value;
         qr.colorDark = darkcolor.value;
 
         qr.init();
+
+        // element = document.querySelector('table');
+        // console.log(element)
     }
 });
 
@@ -49,14 +56,45 @@ lightcolor.addEventListener('keyup', function () {
 });
 
 btn_download.addEventListener('click', function () {
-    downloadImage();
+    let node = document.querySelector('table');
+
+    // Convert to PNG
+    domtoimage.toPng(node, {
+            width: 500,
+            height: 500
+        })
+        .then(function (dataUrl) {
+            let link = document.createElement('a');
+            link.download = 'my-image.png';
+            link.href = dataUrl;
+            link.click();
+        });
+
+    // Convert to JPEG
+    // domtoimage.toJpeg(node, {
+    //         quality: 0.95,
+    //         width: 500,
+    //         height: 500
+    //     })
+    //     .then(function (dataUrl) {
+    //         let link = document.createElement('a');
+    //         link.download = 'my-imge.jpeg';
+    //         link.href = dataUrl;
+    //         link.click();
+    //     })
 });
 
 function downloadImage() {
-    var canvas = document.querySelector('canvas');
+    var canvas = document.querySelector('.card-qrcode-img div table');
     var image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
     var link = document.createElement('a');
     link.download = 'my-qrcode.png';
     link.href = image;
     link.click();
 }
+
+// function setAttributes(element, attributes) {
+//     for (let key in attributes) {
+//         element.setAttribute(key, attributes[key]);
+//     }
+// }
