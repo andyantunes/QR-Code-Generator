@@ -99,12 +99,12 @@ footer {
 }
 
 .card-qrcode-img {
-    padding: 40px 0;
+    padding: 40px 0 0;
     display: flex;
     justify-content: center;
 }
 
-.card-qrcode-img canvas {
+.card-qrcode-img div {
     margin: 0 auto;
     opacity: .5;
 }
@@ -114,7 +114,7 @@ footer {
 }
 
 .card-qrcode-btn {
-    padding: 25px 0;
+    padding: 0;
     text-align: center;
 }
 
