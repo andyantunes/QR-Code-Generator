@@ -19,9 +19,14 @@ form {
 }
 
 footer {
-  background: #fff;
+  background: #34bf98;
+  color: #fff;
   text-align: center;
   padding: 20px 0;
+}
+
+footer small {
+  font-size: 100%;
 }
 
 .container {
