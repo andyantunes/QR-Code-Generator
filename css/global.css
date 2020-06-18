@@ -8,10 +8,15 @@ header {
   padding: 10px 0;
 }
 
-article h1 {
+article .content-title {
   text-align: center;
   margin: 0 0 40px;
   padding: 10px;
+}
+
+.content-description {
+  width: 75%;
+  margin: 0 auto 50px;
 }
 
 form {
